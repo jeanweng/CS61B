@@ -1,7 +1,7 @@
-package proj1a;
+// package proj1a;
 
 public class LinkedListDeque<T> {
-   
+
 	public class Node {
         private T _item;
         private Node _next;
@@ -16,41 +16,41 @@ public class LinkedListDeque<T> {
 		}
    }
 
-   private Node sentinel; 
+   private Node sentinel;
    private int size = 0;
-   
+
    public LinkedListDeque() {
 	   sentinel = new Node(null, null, null);
 	   sentinel._next = sentinel;
 	   sentinel._prev = sentinel;
 	   size = 0;
    }
-   
+
    public LinkedListDeque(T x) {
 	   sentinel = new Node(null, null, null);
 	   Node node = new Node(x, sentinel, sentinel);
 	   sentinel._next = node;
 	   sentinel._prev = node;
 	   size = 1;
-   } 
-   
+   }
+
 	/*
 	 * Creates a deep copy of other
-	 */   
+	 */
    public LinkedListDeque(LinkedListDeque other) {
 	   sentinel = new Node(null, null, null);
 	   sentinel._next = sentinel;
 	   sentinel._prev = sentinel;
 	   size = 0;
-	   
+
 	   for(int i = 0; i < other.size(); i++) {
 		   addLast((T) other.get(i));
 	   }
    }
-   
+
 	/*
 	 * Adds an item of type T to the front of the deque
-	 */   
+	 */
    public void addFirst(T item) {
 	   Node node = new Node(item, sentinel, sentinel._next);
 	   sentinel._next = node;
@@ -77,14 +77,14 @@ public class LinkedListDeque<T> {
 
 	/*
 	 * Returns the number of items in the deque
-	 */   
+	 */
    public int size() {
 	   return size;
    }
 
 	/*
 	 * Prints the items in the deque from first to last
-	 */   
+	 */
    public void printDeque() {
 	   Node p = sentinel._next;
 	   while(p != null && p._item != null) {
@@ -97,7 +97,7 @@ public class LinkedListDeque<T> {
 	/*
 	 * Removes and returns the item at the front of the deque. If no such item
 	 * exists, returns null
-	 */   
+	 */
    public T removeFirst() {
 	   if(size == 0) return null;
 	   Node removed = sentinel._next;
@@ -110,7 +110,7 @@ public class LinkedListDeque<T> {
 	/*
 	 * Removes and returns the item at the back of the deque. If no such item
 	 * exists, returns null
-	 */   
+	 */
    public T removeLast() {
 	   if(size == 0) return null;
 	   Node removed = sentinel._prev;
@@ -123,7 +123,7 @@ public class LinkedListDeque<T> {
 	/*
 	 * Gets the item at the given index using iteration. If no such item exists,
 	 * returns null
-	 */   
+	 */
    public T get(int index) {
 	   if(index > size) return null;
 	   Node p = sentinel._next;
@@ -137,7 +137,7 @@ public class LinkedListDeque<T> {
 	/*
 	 * Gets the item at the given index using recursion. If no such item exists,
 	 * returns null
-	 */   
+	 */
    public T getRecursive(int index) {
 	   if(index > size) {
 		   return null;
@@ -146,8 +146,8 @@ public class LinkedListDeque<T> {
    }
 
 	/*
-	 * Helper function for getRecursive(int index). 
-	 */   
+	 * Helper function for getRecursive(int index).
+	 */
    private T getRecursive(int index, Node n) {
 	   if(index == 0) {
 		   return n.getItem();
