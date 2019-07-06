@@ -81,8 +81,12 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        IntList L = A;
+        while(L.rest != null){
+            L = L.rest;
+        }
+        L.rest = B;
+        return A;
     }
 
     /**
@@ -90,8 +94,23 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        IntList ans = new IntList(A.first, A.rest);
+        IntList dummy = ans;
+        IntList L = A.rest;
+        while(L != null){
+            IntList rest = new IntList(L.first, L.rest);
+            ans.rest = rest;
+            ans = ans.rest;
+            L = L.rest;
+        }
+        L = B;
+        while(L.rest != null){
+            IntList rest = new IntList(L.first, L.rest);
+            ans.rest = rest;
+            ans = ans.rest;
+            L = L.rest;
+        }
+        return dummy;
     }
 
 
@@ -172,7 +191,7 @@ public class IntList {
      * If there is no cycle, the number 0 is returned instead. This is a
      * utility method for lab2. You are not expected to read, understand, or
      * even use this method. The point of this method is so that if you convert
-     * an IntList into a String and that IntList has a loop, your computer
+     * anm IntList into a String and that IntList has a loop, your computer
      * doesn't get stuck in an infinite loop.
      */
 
