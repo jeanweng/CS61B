@@ -26,7 +26,7 @@ public class ArrayDeque<T> {
 
     public T get(int index){
         if(index >= size && index < 0) return null;
-        return items[index];
+        return items[(first + index) % items.length];
     }
 
     public void printDeque(){
