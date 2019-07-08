@@ -86,10 +86,20 @@ public class LinkedListDequeTest {
 		// should be empty
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
+		for(int i = 0; i < 18; i++){
+			lld1.addLast((Integer) i);
+		}
+//		for(int i = 0; i < 10; i++){
+			lld1.removeFirst();
 		lld1.removeFirst();
+		for(int i = 0; i < 10; i++){
+			lld1.removeLast();
+		}
+
+//		}
 
 		// should not be empty
-		passed = checkEmpty(true, lld1.isEmpty()) && passed;
+		passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
 //		lld1.removeFirst();
 		// should be empty

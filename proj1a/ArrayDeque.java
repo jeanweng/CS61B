@@ -5,7 +5,7 @@ public class ArrayDeque<T> {
     private int last;
 
     public ArrayDeque(){
-        items = (T[])new Object[4];
+        items = (T[])new Object[8];
         size = 0;
         first = -1;
         last = -1;
@@ -56,7 +56,7 @@ public class ArrayDeque<T> {
 //        System.out.println("length = " + items.length);
     }
 
-    public void resize(int factor){
+    private void resize(int factor){
         T[] resized = factor == 1? (T[]) new Object[items.length * 2]: (T[]) new Object[items.length / 2];
         int beforeEnd = items.length - first;
         if (first > last) {
@@ -68,8 +68,16 @@ public class ArrayDeque<T> {
             }
             first = resized.length - beforeEnd;
         }else{
-            for(int i = first; i <= last; i++){
-                resized[i] = items[i];
+            if(factor == 1){
+                for(int i = first; i <= last; i++) {
+                    resized[i] = items[i];
+                }
+            }else{
+                for(int i = first; i <= last; i++) {
+                    resized[i - first] = items[i];
+                }
+                last -= first;
+                first = 0;
             }
         }
         items = resized;
@@ -97,12 +105,14 @@ public class ArrayDeque<T> {
             resize(1);
         }
         if(last == -1){
-            items[0] = item;
+            first++;
+            last++;
+        }else if(last == items.length - 1){
             last = 0;
         }else{
             last++;
-            items[last] = item;
         }
+        items[last] = item;
         size++;
     }
 
@@ -118,7 +128,7 @@ public class ArrayDeque<T> {
             first++;
         }
         size--;
-        if(size <= items.length / 2){
+        if(size <= items.length / 2 && items.length > 8){
             resize(-1);
         }
         return removed;
@@ -136,7 +146,7 @@ public class ArrayDeque<T> {
             last--;
         }
         size--;
-        if(size <= items.length / 2){
+        if(size <= items.length / 2 && items.length > 8){
             resize(-1);
         }
         return removed;
