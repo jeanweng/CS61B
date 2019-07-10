@@ -13,10 +13,10 @@ public class Palindrome {
         while(!d.isEmpty()){
             char f = d.removeFirst();
             if(d.isEmpty()) {
-                return Character.isAlphabetic(f);
+                return true;
             }
             char l = d.removeLast();
-            if(!Character.isAlphabetic(f) || f != l) {
+            if(f != l) {
                 return false;
             }
         }
@@ -28,7 +28,7 @@ public class Palindrome {
         while(!d.isEmpty()){
             char f = d.removeFirst();
             if(d.isEmpty()){
-                return Character.isAlphabetic(f);
+                return true;
             }
             char l = d.removeLast();
             if(!cc.equalChars(f,l)) {

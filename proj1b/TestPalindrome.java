@@ -18,13 +18,13 @@ public class TestPalindrome {
 
     @Test
     public void testIsPalindrome(){
-        assertFalse(palindrome.isPalindrome("%6%"));
+        assertTrue(palindrome.isPalindrome("cs61b16sc"));
         assertFalse(palindrome.isPalindrome("Boob"));
         assertTrue(palindrome.isPalindrome("racecar"));
         assertTrue(palindrome.isPalindrome("A"));
         assertTrue(palindrome.isPalindrome("a"));
 
-//        assertFalse(palindrome.isPalindrome("^", offByOne));
+        assertTrue(palindrome.isPalindrome("^", offByOne));
 //        assertFalse(palindrome.isPalindrome("Boob", offByOne));
 //        assertTrue(palindrome.isPalindrome("flake", offByOne));
 //        assertTrue(palindrome.isPalindrome("smlt", offByOne));
