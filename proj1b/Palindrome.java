@@ -1,4 +1,5 @@
 public class Palindrome {
+
     public Deque<Character> wordToDeque(String word){
         Deque<Character> deque = new LinkedListDeque<>();
         for(char c: word.toCharArray()){
@@ -6,6 +7,7 @@ public class Palindrome {
         }
         return deque;
     }
+
     public boolean isPalindrome(String word){
         Deque<Character> d = wordToDeque(word);
         while(!d.isEmpty()){
@@ -20,6 +22,7 @@ public class Palindrome {
         }
         return true;
     }
+
     public boolean isPalindrome(String word, CharacterComparator cc){
         Deque<Character> d = wordToDeque(word);
         while(!d.isEmpty()){
