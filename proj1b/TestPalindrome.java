@@ -25,8 +25,8 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome("a"));
 
         assertTrue(palindrome.isPalindrome("^", offByOne));
-//        assertFalse(palindrome.isPalindrome("Boob", offByOne));
-//        assertTrue(palindrome.isPalindrome("flake", offByOne));
-//        assertTrue(palindrome.isPalindrome("smlt", offByOne));
+        assertFalse(palindrome.isPalindrome("Boob", offByOne));
+        assertTrue(palindrome.isPalindrome("flake", offByOne));
+        assertTrue(palindrome.isPalindrome("smlt", offByOne));
     }
 }
