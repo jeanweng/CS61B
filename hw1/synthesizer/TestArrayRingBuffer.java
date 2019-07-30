@@ -27,7 +27,6 @@ public class TestArrayRingBuffer {
         haha.dequeue();
         haha.enqueue(11);
         haha.enqueue(12);
-        System.out.println("First: " + haha.getFirst() + " Last: " + haha.getLast());
         Iterator<Integer> a = haha.iterator();
         while(a.hasNext()){
             System.out.println(a.next());
