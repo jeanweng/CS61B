@@ -65,12 +65,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T>{
         if(isEmpty()) throw new RuntimeException("The queue is empty. There is nothing to peek.");
         return rb[first];
     }
-    public int getFirst() {
-        return first;
-    }
-    public int getLast(){
-        return last;
-    }
+
     // TODO: When you get to part 5, implement the needed code to support iteration.
     private class KeyIterator implements Iterator<T>{
         private int ptr;
