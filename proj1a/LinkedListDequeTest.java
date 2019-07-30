@@ -90,7 +90,7 @@ public class LinkedListDequeTest {
 			lld1.addFirst((Integer) i);
 			lld1.addLast((Integer)(i + 10));
 		}
-
+		int a = lld1.get(18);
 		System.out.println("get(18):" + lld1.get(18));
 		System.out.println("get(11):" + lld1.get(11));
 
